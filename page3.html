@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Synth Lab</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header class="masthead">
+        <h1>Cloud Synth Lab</h1>
+        <p>Patch the sky with modular weather tones.</p>
+    </header>
+
+    <main>
+        <section class="control-grid">
+            <div class="module">
+                <h2>Stratus Oscillator</h2>
+                <label for="stratus">Density</label>
+                <input type="range" id="stratus" min="0" max="100" value="35">
+            </div>
+            <div class="module">
+                <h2>Cirrus Filter</h2>
+                <label for="cirrus">Altitude</label>
+                <input type="range" id="cirrus" min="0" max="100" value="65">
+            </div>
+            <div class="module noise">
+                <h2>Thunder Noise</h2>
+                <button id="roll-storm">Roll Storm Dice</button>
+                <p id="storm-output">Awaiting forecast seed...</p>
+            </div>
+        </section>
+
+        <section class="log">
+            <h3>Session Notes</h3>
+            <textarea id="session-notes" placeholder="Describe your cloudscape textures..."></textarea>
+        </section>
+    </main>
+
+    <footer>
+        <small>Prototype build 0.3.7 · Coded inside a cumulonimbus</small>
+    </footer>
+
+    <script src="script3.js"></script>
+</body>
+</html>
