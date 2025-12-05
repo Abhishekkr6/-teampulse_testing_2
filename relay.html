@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Relay Nexus</title>
+    <link rel="stylesheet" href="relay.css">
+</head>
+<body>
+    <header class="banner">
+        <div>
+            <h1>Signal Relay Nexus</h1>
+            <p>Coordinate orbital relays, monitor spectral noise, and choreograph transmissions.</p>
+        </div>
+        <div class="clock" id="mission-clock">--:--:--</div>
+    </header>
+
+    <main class="shell">
+        <section class="panel panel--wide" aria-labelledby="routing-heading">
+            <header class="panel-head">
+                <h2 id="routing-heading">Routing Matrix</h2>
+                <button class="btn" id="spawn-route">Inject Route</button>
+            </header>
+            <div class="matrix">
+                <table id="routing-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Relay</th>
+                            <th scope="col">Channel</th>
+                            <th scope="col">Latency</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Controls</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- filled dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel" aria-labelledby="spectra-heading">
+            <header class="panel-head">
+                <h2 id="spectra-heading">Spectral Noise Chart</h2>
+                <button class="btn" id="reseed-chart">Reseed</button>
+            </header>
+            <canvas id="noise-canvas" width="400" height="240"></canvas>
+        </section>
+
+        <section class="panel" aria-labelledby="diagnostic-heading">
+            <header class="panel-head">
+                <h2 id="diagnostic-heading">Diagnostic Console</h2>
+            </header>
+            <div class="console" id="diagnostic-console" role="log" aria-live="polite"></div>
+        </section>
+
+        <section class="panel panel--wide" aria-labelledby="transmission-heading">
+            <header class="panel-head">
+                <h2 id="transmission-heading">Transmission Composer</h2>
+            </header>
+            <form id="composer-form" class="composer">
+                <div class="composer__field">
+                    <label for="composer-relay">Relay Node</label>
+                    <input type="text" id="composer-relay" name="relay" placeholder="e.g. Lyra-West" required>
+                </div>
+                <div class="composer__field">
+                    <label for="composer-channel">Channel</label>
+                    <select id="composer-channel" name="channel">
+                        <option value="Ka">Ka</option>
+                        <option value="Ku">Ku</option>
+                        <option value="X">X</option>
+                        <option value="S">S</option>
+                    </select>
+                </div>
+                <div class="composer__field composer__field--grow">
+                    <label for="composer-payload">Payload</label>
+                    <textarea id="composer-payload" name="payload" rows="3" placeholder="Mission packet contents" required></textarea>
+                </div>
+                <div class="composer__actions">
+                    <button class="btn" type="submit">Queue Transmission</button>
+                    <button class="btn btn--ghost" type="reset">Reset</button>
+                </div>
+            </form>
+            <section aria-labelledby="queue-heading" class="queue">
+                <header class="queue__head">
+                    <h3 id="queue-heading">Queued Transmissions</h3>
+                    <button class="btn btn--ghost" id="flush-queue">Flush</button>
+                </header>
+                <ul id="transmission-queue" class="queue__list"></ul>
+            </section>
+        </section>
+
+        <section class="panel" aria-labelledby="alerts-heading">
+            <header class="panel-head">
+                <h2 id="alerts-heading">Alert Feed</h2>
+                <button class="btn" id="ack-alerts">Acknowledge</button>
+            </header>
+            <ul id="alert-feed" class="alerts"></ul>
+        </section>
+    </main>
+
+    <template id="route-template">
+        <tr>
+            <td data-cell="relay"></td>
+            <td data-cell="channel"></td>
+            <td data-cell="latency"></td>
+            <td data-cell="status"></td>
+            <td data-cell="controls"></td>
+        </tr>
+    </template>
+
+    <template id="route-controls-template">
+        <div class="controls">
+            <button class="link" data-action="boost">Boost</button>
+            <button class="link link--warn" data-action="halt">Halt</button>
+        </div>
+    </template>
+
+    <template id="alert-template">
+        <li class="alerts__item">
+            <div class="alerts__badge" data-cell="type"></div>
+            <div class="alerts__body">
+                <p data-cell="message"></p>
+                <time data-cell="timestamp"></time>
+            </div>
+        </li>
+    </template>
+
+    <script src="relay.js" defer></script>
+</body>
+</html>
