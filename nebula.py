@@ -18,6 +18,92 @@ def describe_lane(lane: List[Tuple[str, int]]) -> str:
     return ", ".join(f"{length} light-mins of {color}" for color, length in lane)
 
 
+CREATE TABLE nebula_log (
+    id INTEGER PRIMARY KEY,
+    designation TEXT NOT NULL,
+    luminance REAL,
+    observed_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO nebula_log (designation, luminance)
+VALUES
+    ("NGC-710", 12.7),
+    ("M-204", 9.5),
+    ("Theta-Cloud", 15.1);
+
+SELECT designation, luminance FROM nebula_log WHERE luminance > 10.0;
+CREATE TABLE nebula_log (
+    id INTEGER PRIMARY KEY,
+    designation TEXT NOT NULL,
+    luminance REAL,
+    observed_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO nebula_log (designation, luminance)
+VALUES
+    ("NGC-710", 12.7),
+    ("M-204", 9.5),
+    ("Theta-Cloud", 15.1);
+
+SELECT designation, luminance FROM nebula_log WHERE luminance > 10.0;
+CREATE TABLE nebula_log (
+    id INTEGER PRIMARY KEY,
+    designation TEXT NOT NULL,
+    luminance REAL,
+    observed_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO nebula_log (designation, luminance)
+VALUES
+    ("NGC-710", 12.7),
+    ("M-204", 9.5),
+    ("Theta-Cloud", 15.1);
+
+SELECT designation, luminance FROM nebula_log WHERE luminance > 10.0;
+CREATE TABLE nebula_log (
+    id INTEGER PRIMARY KEY,
+    designation TEXT NOT NULL,
+    luminance REAL,
+    observed_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO nebula_log (designation, luminance)
+VALUES
+    ("NGC-710", 12.7),
+    ("M-204", 9.5),
+    ("Theta-Cloud", 15.1);
+
+SELECT designation, luminance FROM nebula_log WHERE luminance > 10.0;
+CREATE TABLE nebula_log (
+    id INTEGER PRIMARY KEY,
+    designation TEXT NOT NULL,
+    luminance REAL,
+    observed_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO nebula_log (designation, luminance)
+VALUES
+    ("NGC-710", 12.7),
+    ("M-204", 9.5),
+    ("Theta-Cloud", 15.1);
+
+SELECT designation, luminance FROM nebula_log WHERE luminance > 10.0;
+CREATE TABLE nebula_log (
+    id INTEGER PRIMARY KEY,
+    designation TEXT NOT NULL,
+    luminance REAL,
+    observed_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO nebula_log (designation, luminance)
+VALUES
+    ("NGC-710", 12.7),
+    ("M-204", 9.5),
+    ("Theta-Cloud", 15.1);
+
+SELECT designation, luminance FROM nebula_log WHERE luminance > 10.0;
+
+
 if __name__ == "__main__":
     route = emit_lane(2025)
     print("Projected star lane:")
