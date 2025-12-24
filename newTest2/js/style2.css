@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    font-family: "Calibri", Helvetica, sans-serif;
+    background: #131a13;
+    color: #d9f5d9;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #1d2d1d;
+    border-bottom: 1px solid rgba(217, 245, 217, 0.12);
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: 0.16rem;
+    text-transform: uppercase;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.terrarium,
+.stats {
+    background: rgba(30, 46, 30, 0.85);
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+#humidity-chart {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+
+#stats-panel {
+    transition: max-height 0.4s ease;
+    overflow: hidden;
+}
+
+.hidden {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#growth-log {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+#growth-log li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(217, 245, 217, 0.2);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: rgba(217, 245, 217, 0.6);
+    border-top: 1px solid rgba(217, 245, 217, 0.12);
+}

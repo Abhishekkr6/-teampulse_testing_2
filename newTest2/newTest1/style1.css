@@ -1,0 +1,73 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    background: radial-gradient(circle at top, #1b2845, #0b1020 60%);
+    color: #f2f6ff;
+    text-align: center;
+}
+
+.hero {
+    padding: 6rem 1rem 4rem;
+    background: linear-gradient(135deg, rgba(255, 141, 95, 0.7), rgba(65, 83, 208, 0.55));
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.hero h1 {
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+button {
+    cursor: pointer;
+    padding: 0.75rem 1.75rem;
+    border: none;
+    border-radius: 999px;
+    background: #ff8d5f;
+    color: #0b1020;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+}
+
+main {
+    padding: 3rem 1rem;
+    display: grid;
+    gap: 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.blend-card {
+    background: rgba(15, 24, 51, 0.75);
+    border-radius: 18px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.countdown {
+    background: rgba(11, 16, 32, 0.9);
+    border-radius: 18px;
+    padding: 2rem;
+    min-height: 120px;
+    display: grid;
+    place-items: center;
+    letter-spacing: 0.08rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#timer {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffd166;
+}
+
+footer {
+    padding: 2rem 0 3rem;
+    font-size: 0.85rem;
+    color: rgba(242, 246, 255, 0.68);
+}
