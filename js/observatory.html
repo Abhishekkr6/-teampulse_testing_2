@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waypoint Observatory Control</title>
+    <link rel="stylesheet" href="observatory.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="brand">Waypoint Observatory</div>
+        <div class="status-pill" id="uptime-pill">Uptime: calculating...</div>
+    </nav>
+
+    <main class="layout">
+        <section class="panel" aria-labelledby="scan-heading">
+            <header class="panel-header">
+                <h2 id="scan-heading">Spectral Scan Queue</h2>
+                <button class="action" id="enqueue-scan">Schedule Random Scan</button>
+            </header>
+            <table class="queue-table" id="queue-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Target</th>
+                        <th scope="col">Band</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col">Window</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- rows populated by script -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="panel" aria-labelledby="timeline-heading">
+            <header class="panel-header">
+                <h2 id="timeline-heading">Observation Timeline</h2>
+                <div class="filters">
+                    <label>
+                        <span>Show Range</span>
+                        <select id="timeline-range">
+                            <option value="6">6 hours</option>
+                            <option value="12">12 hours</option>
+                            <option value="24" selected>24 hours</option>
+                        </select>
+                    </label>
+                </div>
+            </header>
+            <div class="timeline" id="timeline"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="telemetry-heading">
+            <header class="panel-header">
+                <h2 id="telemetry-heading">Telemetry Digest</h2>
+                <button class="action" id="refresh-telemetry">Refresh</button>
+            </header>
+            <div class="telemetry-grid" id="telemetry-grid">
+                <!-- cards generated via script -->
+            </div>
+        </section>
+
+        <section class="panel" aria-labelledby="notes-heading">
+            <header class="panel-header">
+                <h2 id="notes-heading">Observer Log</h2>
+                <button class="action" id="export-log">Export</button>
+            </header>
+            <form id="log-form">
+                <div class="form-row">
+                    <label for="log-author">Author</label>
+                    <input id="log-author" name="log-author" type="text" placeholder="Callsign" required>
+                </div>
+                <div class="form-row">
+                    <label for="log-summary">Summary</label>
+                    <input id="log-summary" name="log-summary" type="text" placeholder="Short summary" required>
+                </div>
+                <div class="form-row">
+                    <label for="log-body">Details</label>
+                    <textarea id="log-body" name="log-body" rows="5" placeholder="Enter observation notes" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button class="action" type="submit">Record Entry</button>
+                </div>
+            </form>
+            <ul class="log-entries" id="log-entries">
+                <!-- log entries injected by script -->
+            </ul>
+        </section>
+    </main>
+
+    <dialog id="export-dialog">
+        <form method="dialog">
+            <h3>Observer Log Export</h3>
+            <textarea id="export-text" readonly rows="10"></textarea>
+            <menu>
+                <button value="close">Close</button>
+            </menu>
+        </form>
+    </dialog>
+
+    <template id="row-template">
+        <tr>
+            <td data-cell="target"></td>
+            <td data-cell="band"></td>
+            <td data-cell="priority"></td>
+            <td data-cell="window"></td>
+            <td data-cell="actions">
+                <button class="link" data-action="promote">Promote</button>
+                <button class="link" data-action="drop">Drop</button>
+            </td>
+        </tr>
+    </template>
+
+    <template id="telemetry-template">
+        <article class="telemetry-card">
+            <h3 data-cell="label"></h3>
+            <p class="value" data-cell="value"></p>
+            <p class="trend" data-cell="trend"></p>
+        </article>
+    </template>
+
+    <script src="observatory.js" defer></script>
+</body>
+</html>
